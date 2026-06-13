@@ -17,5 +17,6 @@ public class Main {
         double imc = pessoa1.calcularIMC();
 
         System.out.println("IMC: " + imc);
+        System.out.println("Classificação: " + pessoa1.classificarIMC());
     }
 }
