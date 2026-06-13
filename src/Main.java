@@ -13,5 +13,9 @@ public class Main {
         System.out.println("Idade: " + pessoa1.idade);
         System.out.println("Peso: " + pessoa1.peso);
         System.out.println("Altura: " + pessoa1.altura);
+
+        double imc = pessoa1.calcularIMC();
+
+        System.out.println("IMC: " + imc);
     }
 }

@@ -3,4 +3,8 @@ public class Pessoa {
     int idade;
     double peso;
     double altura;
+
+    double calcularIMC() {
+        return peso / (altura * altura);
+    }
 }
