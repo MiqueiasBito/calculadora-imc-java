@@ -1,10 +1,14 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Main {
     
     public static void main(String[] args) {
 
         Scanner entrada = new Scanner(System.in);
+
+        // Lista que armazenará várias pessoas cadastradas
+        ArrayList<Pessoa> pessoas = new ArrayList<>();
 
         System.out.println("=== Calculadora de IMC ===");
 
@@ -30,17 +34,22 @@ public class Main {
         
         Pessoa pessoa1 = new Pessoa(nome, idade, peso, altura);
 
-        System.out.println("\n=== Resultado ===");
-        System.out.println("Nome: " + pessoa1.nome);
-        System.out.println("Idade: " + pessoa1.idade);
-        System.out.println("Peso: " + pessoa1.peso);
-        System.out.println("Altura: " + pessoa1.altura);
+        // Adiciona a pessoa criada dentro da lista
+        pessoas.add(pessoa1);
 
-        double imc = pessoa1.calcularIMC();
-
-        System.out.println("IMC: " + imc);
-        System.out.println("Classificação: " + pessoa1.classificarIMC());
-
+        // Percorre a lista e mostra cada pessoa cadastrada
+        for (Pessoa pessoa : pessoas) {
+            System.out.println("\n=== Pessoa cadastrada ===");
+            System.out.println("Nome: " + pessoa.nome);
+            System.out.println("Idade: " + pessoa.idade);
+            System.out.println("Peso: " + pessoa.peso);
+            System.out.println("Altura: " + pessoa.altura);
+            System.out.println("IMC: " + pessoa.calcularIMC());
+            System.out.println("Classificação: " + pessoa.classificarIMC());
+        }
         entrada.close();
     }
 }
+// new Pessoa (...) = cria o objeto
+// pessoa.add(...) = guarda o objeto na lista
+// for (...) = percorre a lista
