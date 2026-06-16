@@ -5,48 +5,81 @@ public class Main {
     
     public static void main(String[] args) {
 
+        // Scanner usado para ler entradas de dados do usuário
         Scanner entrada = new Scanner(System.in);
 
-        // Lista que armazenará várias pessoas cadastradas
+        //Lista que armazenará várias pessoas cadastradas
         ArrayList<Pessoa> pessoas = new ArrayList<>();
 
-        System.out.println("=== Calculadora de IMC ===");
+        // Variável que controla a opção escolhida no menu
+        int opcao = -1;
 
-        System.out.println("Digite o nome: ");
-        String nome = entrada.nextLine();
+        // O menu continuará aparecendo enquando o usuário não escolher 0 (zero)
+        while (opcao != 0) {
 
-        System.out.println("Digite a idade: ");
-        int idade = entrada.nextInt();
+            System.out.println("\n=== Calculadora de IMC ===");
+            System.out.println("1 - Cadastrar pessoa");
+            System.out.println("2 - Listar pessoas");
+            System.out.println("Escolha uma opção: ");
 
-        System.out.println("Digite o peso: ");
-        double peso = entrada.nextDouble();
+            opcao = entrada.nextInt();
+            entrada.nextLine(); // limpa a quebra de linha deixada pelo nextInt
 
-        // Lê a altura digitada pelo usuário
-        System.out.println("Digite sua altura em metros. Exemplo: 1,76: ");
-        double altura = entrada.nextDouble();
+            if (opcao == 1) {
 
-        // Se o usuário digitar 176, o programa entende que foi em centímetros
-        // Caso o usuário digite 176 em vez de 1,76
-        // O programa converte para de centímetros para metros
-        if (altura > 3) {
-            altura = altura / 100;
+                System.out.println("Digite o nome: ");
+                String nome = entrada.nextLine();
+
+                System.out.println("Digite a idade: ");
+                int idade = entrada.nextInt();
+
+                System.out.println("Digite o peso em kg. Exemplo: 70,5: ");
+                double peso = entrada.nextDouble();
+
+                System.out.println("Digite a altura em metros. Exemplo: 1,76: ");
+                double altura = entrada.nextDouble();
+
+                // Caso o usuário digite 178 em verz de 1,76,
+                // o programa converte centímetros para metros
+
+                if (altura > 3) {
+                    altura = altura / 100;
+                }
+
+                // Cria um objeto Pessoa com os dados digitados
+                Pessoa pessoa = new Pessoa(nome, idade, peso, altura);
+
+                // Adiciona a pessoa criada dentro da lista
+                pessoas.add(pessoa);
+
+                System.out.println("Pessoa cadastrada com sucesso!");
+            
+        } else if (opcao == 2) {
+
+            if (pessoas.isEmpty()) {
+                System.out.println("Nenhuma pessoa cadastrada.");
+            } else {
+
+                //Percorre a lista e mostra cada pessoa cadastrada
+                for (Pessoa pessoa : pessoas) {
+                    System.out.println("\n=== Pessoa cadastrada ===");
+                    System.out.println("Nome: " + pessoa.nome);
+                    System.out.println("Idade: " + pessoa.idade);
+                    System.out.println("Peso: " + pessoa.peso);
+                    System.out.println("Altura: " + pessoa.altura);
+                    System.out.println("IMC: " + pessoa.calcularIMC());
+                    System.out.println("Classificação: " + pessoa.classificarIMC());
+                }
+            }
+        } else if (opcao == 0) {
+
+            System.out.println("Encerrando o programa...");
+            
+        } else {
+
+            System.out.println("Opção inválida.");
         }
-        
-        Pessoa pessoa1 = new Pessoa(nome, idade, peso, altura);
-
-        // Adiciona a pessoa criada dentro da lista
-        pessoas.add(pessoa1);
-
-        // Percorre a lista e mostra cada pessoa cadastrada
-        for (Pessoa pessoa : pessoas) {
-            System.out.println("\n=== Pessoa cadastrada ===");
-            System.out.println("Nome: " + pessoa.nome);
-            System.out.println("Idade: " + pessoa.idade);
-            System.out.println("Peso: " + pessoa.peso);
-            System.out.println("Altura: " + pessoa.altura);
-            System.out.println("IMC: " + pessoa.calcularIMC());
-            System.out.println("Classificação: " + pessoa.classificarIMC());
-        }
+    }
         entrada.close();
     }
 }
