@@ -22,6 +22,7 @@ public class Main {
             System.out.println("2 - Listar pessoas");
             System.out.println("3 - Remover pessoa");
             System.out.println("4 - Editar pessoa");
+            System.out.println("5 - Buscar pessoa");
             System.out.println("0 - Sair");
             System.out.println("Escolha uma opção: ");
 
@@ -147,6 +148,40 @@ public class Main {
 
                 }
             }      
+        } else if (opcao == 5) {
+
+            if (pessoas.isEmpty()) {
+
+                System.out.println("Não existem pessoas cadastradas.");
+
+            } else {
+
+                System.out.println("Digite o nome que deseja buscar:");
+                String nomeBuscado = entrada.nextLine();
+
+                boolean encontrou = false;
+
+                for (Pessoa pessoa : pessoas) {
+
+                    if (pessoa.nome.equals(nomeBuscado)) {
+
+                        System.out.println("\n=== Pessoa encontrada ===");
+                        System.out.println("Nome: " + pessoa.nome);
+                        System.out.println("Idade: " + pessoa.idade);
+                        System.out.println("Peso: " + pessoa.peso);
+                        System.out.println("Altura: " + pessoa.altura);
+                        System.out.println("IMC: " + pessoa.calcularIMC());
+                        System.out.println("Classificação: " + pessoa.classificarIMC());
+
+                        encontrou = true;
+                    }
+                }
+
+                if (!encontrou) {
+                    System.out.println("Pessoa não encontrada");
+                }
+            }
+            
         }
         else if (opcao == 0) {
 
@@ -163,3 +198,6 @@ public class Main {
 // new Pessoa (...) = cria o objeto
 // pessoa.add(...) = guarda o objeto na lista
 // for (...) = percorre a lista
+// TODO: Melhorar validação para impedir erro caso o usuário digite texto
+//opcao = entrada.nextInt();
+//entrada.nextLine();
