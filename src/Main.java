@@ -20,6 +20,8 @@ public class Main {
             System.out.println("\n=== Calculadora de IMC ===");
             System.out.println("1 - Cadastrar pessoa");
             System.out.println("2 - Listar pessoas");
+            System.out.println("3 - Remover pessoa");
+            System.out.println("0 - Sair");
             System.out.println("Escolha uma opção: ");
 
             opcao = entrada.nextInt();
@@ -61,7 +63,9 @@ public class Main {
             } else {
 
                 //Percorre a lista e mostra cada pessoa cadastrada
-                for (Pessoa pessoa : pessoas) {
+                for (int i = 0; i < pessoas.size(); i++) {
+                    Pessoa pessoa = pessoas.get(i);
+
                     System.out.println("\n=== Pessoa cadastrada ===");
                     System.out.println("Nome: " + pessoa.nome);
                     System.out.println("Idade: " + pessoa.idade);
@@ -71,7 +75,30 @@ public class Main {
                     System.out.println("Classificação: " + pessoa.classificarIMC());
                 }
             }
-        } else if (opcao == 0) {
+        } else if (opcao == 3) {
+            if (pessoas.isEmpty()) {
+
+                System.out.println("Não existem pessoas cadastradas.");
+                
+            } else {
+
+                // Mostra as pessoas com seus indices
+                for (int i = 0; i < pessoas.size(); i++) {
+
+                    Pessoa pessoa = pessoas.get(i);
+
+                    System.out.println(i + " - " + pessoa.nome);
+                }
+
+                System.out.println("Digite o índice que deseja remover: ");
+
+                int indice = entrada.nextInt();
+
+                pessoas.remove(indice);
+
+                System.out.println("Pessoa removida com sucesso!");
+            }           
+        }else if (opcao == 0) {
 
             System.out.println("Encerrando o programa...");
             
