@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 
 public class Main {
     
@@ -26,8 +27,14 @@ public class Main {
             System.out.println("0 - Sair");
             System.out.println("Escolha uma opção: ");
 
-            opcao = entrada.nextInt();
-            entrada.nextLine(); // limpa a quebra de linha deixada pelo nextInt
+            try {
+                opcao = entrada.nextInt();
+                entrada.nextLine(); // limpa a quebra de linha deixada pelo nextInt
+            } catch (InputMismatchException possivelErro) {
+                System.out.println("Opção inválida. Digite apenas números.");
+                entrada.nextLine(); // limpa o texto inválido digitado
+                continue; // volta para o início do menu
+            }
 
             if (opcao == 1) {
 

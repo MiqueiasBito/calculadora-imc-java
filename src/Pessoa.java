@@ -1,4 +1,4 @@
-public class Pessoa {
+public class Pessoa implements CalculavelIMC {
 
     // Atributos; responsavel por características que toda pessoa terá
     String nome;
