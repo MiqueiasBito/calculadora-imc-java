@@ -111,9 +111,15 @@ public class Main {
 
                 int indice = entrada.nextInt();
 
-                pessoas.remove(indice);
+                if (indice <= 0 && indice < pessoas.size()) {
+                    Pessoa pessoaRemovida = pessoas.remove(indice);
 
-                System.out.println("Pessoa removida com sucesso!");
+                    System.out.println("Pessoa removida com sucesso: " + pessoaRemovida.nome);
+
+                } else {
+                    
+                    System.out.println("Índice inválido.");
+                }
             }           
         } else if (opcao == 4) {
 
