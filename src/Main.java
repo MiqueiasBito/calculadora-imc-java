@@ -117,7 +117,7 @@ public class Main {
                     System.out.println("Pessoa removida com sucesso: " + pessoaRemovida.nome);
 
                 } else {
-                    
+
                     System.out.println("Índice inválido.");
                 }
             }           
@@ -161,7 +161,7 @@ public class Main {
                         pessoa.altura = pessoa.altura / 100;
                     }
 
-                    System.out.println("Pessoa editada com sucesso!");
+                    System.out.println("Pessoa editada com sucesso!" + pessoa.nome);
 
                 } else {
 
