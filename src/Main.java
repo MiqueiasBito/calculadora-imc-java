@@ -15,6 +15,12 @@ public class Main {
         // Variável que controla a opção escolhida no menu
         int opcao = -1;
 
+        Atleta atletaTeste = new Atleta("João", 25, 80, 1.80, "Futebol");
+
+        System.out.println(atletaTeste.nome);
+        System.out.println(atletaTeste.calcularIMC());
+        atletaTeste.mostrarEsporte();
+
         // O menu continuará aparecendo enquando o usuário não escolher 0 (zero)
         while (opcao != 0) {
 
