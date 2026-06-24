@@ -76,12 +76,14 @@ public class Main {
             if (pessoas.isEmpty()) {
                 System.out.println("Nenhuma pessoa cadastrada.");
             } else {
+                System.out.println("Total de pessoas cadastradas: " + pessoas.size());
 
                 //Percorre a lista e mostra cada pessoa cadastrada
                 for (int i = 0; i < pessoas.size(); i++) {
                     Pessoa pessoa = pessoas.get(i);
 
                     System.out.println("\n=== Pessoa cadastrada ===");
+                    System.out.println("Índice: " + i);
                     System.out.println("Nome: " + pessoa.nome);
                     System.out.println("Idade: " + pessoa.idade);
                     System.out.println("Peso: " + pessoa.peso);
