@@ -100,7 +100,7 @@ Projeto desenvolvido por **Miquéias Bito** para a disciplina de Programação O
 
 Agradecimento aos professores e materiais que contribuíram para o desenvolvimento deste projeto:
 
-- Prof. Dr. Romes Rodrigues
+- Prof. Dr. Romes Heriberto
 - YouTube: Professor Isidro (Curso de Java)
 - YouTube: Gustavo Guanabara (Curso em Vídeo)
 
