@@ -1,0 +1,11 @@
+# Arquivos compilados
+*.class
+
+#Build do Maven
+target/
+
+#VS Code
+.vscode/
+
+# Logs
+*.log

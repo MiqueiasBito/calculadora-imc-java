@@ -1,10 +1,10 @@
 public abstract class PessoaBase {
 
     // Atributos comuns a qualquer pessoa do sistema
-    String nome;
-    int idade;
-    double peso;
-    double altura;
+    protected String nome;
+    protected int idade;
+    protected double peso;
+    protected double altura;
 
     // Construtor da classe base
     public PessoaBase(String nome, int idade, double peso, double altura) {
